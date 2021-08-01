@@ -1,0 +1,166 @@
+
+		body
+		{
+			margin: 0;
+			max-width: 100%;
+			height: auto;
+			display: flex;
+			flex-direction: row;
+			font-family: 'Roboto', sans-serif;
+		}
+		#navbar header
+		{
+			font-family: 'Roboto', sans-serif;
+			font-family: 'Roboto Slab', serif;
+			color: #784913;
+			border-bottom: 2px solid #784913;  
+		}
+		header
+		{
+			font-size: 30px;
+			font-weight: bold;
+		}
+		#navbar
+		{
+			grid-area: navbar;
+			height: 100vw;
+			position: fixed;
+			border-right: 5px solid #425C5A;
+			background: #FB6B1A;
+		}
+		nav header
+		{
+			padding: 10px;
+			margin: 0px 5px 0px 5px;
+			font-size: 50px;
+		}
+		#nav
+		{
+			display: grid;
+			grid-template-columns: 30vw;
+			align-items: center;
+			grid-template-rows: repeat(10,50px);
+			padding: 10px;
+		}
+		.nav-link
+		{
+			text-decoration: none;
+			font-size: 18px;
+			color: white;
+			padding: 10px 0 10px 10px ;
+			border-radius: 5px;
+		}
+		.nav-link:hover
+		{
+			background-color: white;
+			color: #FB6B1A;
+			box-shadow: 0px 0px 5px 3px #425C5A;
+		}
+		#main-doc
+		{
+			margin-left: 30vw;
+			background: #FFCEA2;
+			grid-area: main-doc;
+			padding: 30px 30px 30px 50px;
+			color: #332E29;
+		}
+		#main-doc header
+		{
+			color: #425C5A;
+		}
+		#code
+		{
+			background: rgb(0,0,0,0);
+			margin-bottom: 1em;
+			font-size: 16px;
+			padding: 10px;
+			box-shadow: inset 0 0 10px #000000;
+			border: solid 2px #77838F;
+			color: #CB4C07;
+		}
+		table 
+		{
+			border-collapse: collapse;
+		}
+		th
+		{
+			background: #F6CEAB;
+		}
+		table, th, td
+		{
+			padding: 5px;
+		 	border: 1.5px solid #425C5A;
+		}
+		.footer
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			font-family: 'Tangerine', cursive;
+			font-size: 30px;
+			background: #425C5A;
+			color: black;
+			width: 100%;
+			vertical-align: bottom;
+			
+		}
+		#source
+		{
+			text-align: right;
+		}
+		#logo
+		{
+			text-decoration:none;
+			color: white;
+			padding: 4px 10px 4px 10px;
+			margin: 10px;
+		}
+		#logo:hover
+		{
+			background: #72e0d1;
+			border-radius: 5px;
+			box-shadow: 0 0 10px #000000;
+		}
+		@media (max-width: 850px)
+		{
+				body
+				{
+					flex-direction: column;
+					max-width: 100%;
+				}
+				nav header
+				{
+					padding: 10px;
+					margin: 10px;
+					grid-row: 1/3;
+					font-size: 40px;
+				}	
+				#navbar
+				{
+					border-right:none;
+					border-bottom: 5px solid #425C5A;
+					position: relative;
+					height: 50vh;
+					width: auto;
+				}
+				#nav
+				{
+					border: 2px solid #425C5A;
+					grid-template-columns: auto;
+					margin: 10px;
+					border-radius: 5px;
+					height: 30vh;
+					overflow-y: scroll;
+				}
+				.nav-link
+				{
+					text-decoration: none;
+					font-size: 18px;
+					color: white;
+					padding: 10px 0 10px 10px ;
+					border-radius: 5px;
+				}
+				#main-doc
+				{
+					margin-left: 0px;
+				}
+		}
