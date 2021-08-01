@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>A Technical Documentation Page</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		body
+		{
+			margin: 0;
+			max-width: 100%;
+			height: auto;
+			display: flex;
+			flex-direction: row;
+			font-family: 'Roboto', sans-serif;
+		}
+		#navbar header
+		{
+			font-family: 'Roboto', sans-serif;
+			font-family: 'Roboto Slab', serif;
+			color: #784913;
+			border-bottom: 2px solid #784913;  
+		}
+		header
+		{
+			font-size: 30px;
+			font-weight: bold;
+		}
+		#navbar
+		{
+			grid-area: navbar;
+			height: 100vw;
+			position: fixed;
+			border-right: 5px solid #425C5A;
+			background: #FB6B1A;
+		}
+		nav header
+		{
+			padding: 10px;
+			margin: 0px 5px 0px 5px;
+			font-size: 50px;
+		}
+		#nav
+		{
+			display: grid;
+			grid-template-columns: 30vw;
+			align-items: center;
+			grid-template-rows: repeat(10,50px);
+			padding: 10px;
+		}
+		.nav-link
+		{
+			text-decoration: none;
+			font-size: 18px;
+			color: white;
+			padding: 10px 0 10px 10px ;
+			border-radius: 5px;
+		}
+		.nav-link:hover
+		{
+			background-color: white;
+			color: #FB6B1A;
+			box-shadow: 0px 0px 5px 3px #425C5A;
+		}
+		#main-doc
+		{
+			margin-left: 30vw;
+			background: #FFCEA2;
+			grid-area: main-doc;
+			padding: 30px 30px 30px 50px;
+			color: #332E29;
+		}
+		#main-doc header
+		{
+			color: #425C5A;
+		}
+		#code
+		{
+			background: rgb(0,0,0,0);
+			margin-bottom: 1em;
+			font-size: 16px;
+			padding: 10px;
+			box-shadow: inset 0 0 10px #000000;
+			border: solid 2px #77838F;
+			color: #CB4C07;
+		}
+		table 
+		{
+			border-collapse: collapse;
+		}
+		th
+		{
+			background: #F6CEAB;
+		}
+		table, th, td
+		{
+			padding: 5px;
+		 	border: 1.5px solid #425C5A;
+		}
+		.footer
+		{
+			display: grid;
+			grid-template-columns: 50% 50%;
+			font-family: 'Tangerine', cursive;
+			font-size: 30px;
+			background: #425C5A;
+			color: black;
+			width: 100%;
+			vertical-align: bottom;
+			
+		}
+		#source
+		{
+			text-align: right;
+		}
+		#logo
+		{
+			text-decoration:none;
+			color: white;
+			padding: 4px 10px 4px 10px;
+			margin: 10px;
+		}
+		#logo:hover
+		{
+			background: #72e0d1;
+			border-radius: 5px;
+			box-shadow: 0 0 10px #000000;
+		}
+		@media (max-width: 850px)
+		{
+				body
+				{
+					flex-direction: column;
+					max-width: 100%;
+				}
+				nav header
+				{
+					padding: 10px;
+					margin: 10px;
+					grid-row: 1/3;
+					font-size: 40px;
+				}	
+				#navbar
+				{
+					border-right:none;
+					border-bottom: 5px solid #425C5A;
+					position: relative;
+					height: 50vh;
+					width: auto;
+				}
+				#nav
+				{
+					border: 2px solid #425C5A;
+					grid-template-columns: auto;
+					margin: 10px;
+					border-radius: 5px;
+					height: 30vh;
+					overflow-y: scroll;
+				}
+				.nav-link
+				{
+					text-decoration: none;
+					font-size: 18px;
+					color: white;
+					padding: 10px 0 10px 10px ;
+					border-radius: 5px;
+				}
+				#main-doc
+				{
+					margin-left: 0px;
+				}
+		}
+	</style>
+</head>
+<body>
+	<nav id="navbar">
+		<header>SQL*Plus®</header>
+		<ul id="nav">
+			<a href="#About_this_Quick_Reference" class="nav-link">About this Quick Reference</a>
+			<a href="#Documentation_Accessibility" class="nav-link">Documentation Accessibility</a>
+			<a href="#Alphabetic_List_of_SQL*Plus_Commands" class="nav-link">Alphabetic List of SQL*Plus Commands</a>
+			<a href="#Starting_and_Leaving_SQL*Plus" class="nav-link">Starting and Leaving SQL*Plus</a>
+			<a href="#Starting_Up_and_Shutting_Down_a_Database" class="nav-link">Starting Up and Shutting Down a Database</a>
+			<a href="#Entering_and_Executing_Commands" class="nav-link">Entering and Executing Commands</a>
+			<a href="#Manipulating_SQL,_SQL*Plus_and_PL/SQL_Commands" class="nav-link">Manipulating SQL, SQL*Plus and PL/SQL Commands</a>
+			<a href="#Formatting_Query_Results" class="nav-link">Formatting Query Results</a>
+			<a href="#Accessing_Databases" class="nav-link">Accessing Databases</a>
+			<a href="#Miscellaneous" class="nav-link">Miscellaneous</a>
+		</ul>
+	</nav>
+	<main id="main-doc"> <!-- contains Technical Documentation -->
+		<section class="main-section" id="About_this_Quick_Reference">
+			<header>About this Quick Reference</header>
+			<p>This Quick Reference shows SQL*Plus command syntax. For detailed information on each command, refer to the SQL*Plus User's Guide and Reference.</p>
+		</section>
+		<section class="main-section" id="Documentation_Accessibility">
+			<header>Documentation Accessibility</header>
+			<p>For information about Oracle's commitment to accessibility, visit the Oracle Accessibility Program website at <span>http://www.oracle.com/pls/topic/lookup?ctx=acc&id=docacc</span>.</p>
+			<h3>Access to Oracle Support</h3>
+			<p>Oracle customers have access to electronic support through My Oracle Support. For information, visit <b>http://www.oracle.com/pls/topic/lookup?ctx=acc&id=info</b> or visit <b>http://www.oracle.com/pls/topic/lookup?ctx=acc&id=trs</b> if you are hearing impaired.</p>
+		</section>
+		<section class="main-section" id="Alphabetic_List_of_SQL*Plus_Commands">
+			<header>Alphabetic List of SQL*Plus Commands</header>
+			<p>@{url | file_name[.ext]} [arg ...]</p>
+
+			<p>@@ { url | file_name[.ext] } [arg ...]</p>
+
+			<p>/ (slash)</p>
+
+			<p>ACC[EPT] variable [NUM[BER] | CHAR | DATE | BINARY_FLOAT | BINARY_DOUBLE] [FOR[MAT] format] [DEF[AULT] default] [PROMPT text | NOPR[OMPT]] [HIDE]</p>
+
+			<p>A[PPEND] text</p>
+
+			<p>ARCHIVE LOG LIST</p>
+
+			<p>ATTRIBUTE [type_name.attribute_name [option...]]</p>
+
+			<p>BRE[AK] [ON report_element [action [action]]] ...</p>
+
+			<p>BTI[TLE] [printspec [text | variable] ...] | [ON | OFF]</p>
+
+			<p>C[HANGE] sepchar old [sepchar [new [sepchar]]]</p>
+
+			<p>CL[EAR] option ...</p>
+
+			<p>COL[UMN] [{column | expr} [option ...]]</p>
+
+			<p>COMP[UTE] [function [LAB[EL] text] ... OF {expr | column | alias} ...ON {expr | column | alias | REPORT | ROW} ...]</p>
+
+			<p>CONN[ECT] [{logon | / | proxy}  [AS {SYSASM |SYSBACKUP |SYSDBA |SYSDG |SYSOPER |SYSRAC |SYSKM}] [edition=value] ]</p>
+
+			<p>COPY {FROM database | TO database | FROM database TO database} {APPEND | CREATE | INSERT | REPLACE} destination_table[(column, column, column, ...)] USING query</p>
+
+			<p>DEF[INE] [variable] | [variable = text]</p>
+
+			<p>DEL [n | n m | n * | n LAST | * | * n | * LAST | LAST]</p>
+
+			<p>DESC[RIBE] {[schema.]object[@connect_identifier]}</p>
+
+			<p>DISC[ONNECT]</p>
+
+			<p>ED[IT] [file_name[.ext]]</p>
+
+			<p>EXEC[UTE] statement</p>
+
+			<p>{EXIT | QUIT} [SUCCESS | FAILURE | WARNING | n | variable | :BindVariable] [COMMIT | ROLLBACK]</p>
+
+			<p>GET  [FILE] file_name[.ext] [LIST | NOLIST]</p>
+
+			<p>HELP | ? [topic]</p>
+
+			<p>HIST[ORY] [n RUN | EDIT | DEL[ETE]] | [CLEAR | LIST]</p>
+
+			<p>HO[ST] [command]</p>
+
+			<p>I[NPUT] [text]</p>
+
+			<p>L[IST] [n | n m | n * | n LAST | * | * n | * LAST | LAST]</p>
+
+			<p>PASSW[ORD] [username]</p>
+
+			<p>PAU[SE] [text]</p>
+
+			<p>PRINT [variable ...]</p>
+
+			<p>PRO[MPT] [text]</p>
+
+			<p>{QUIT | EXIT} [SUCCESS | FAILURE | WARNING | n | variable | :BindVariable] [COMMIT | ROLLBACK]</p>
+
+			<p>RECOVER {general | managed | BEGIN BACKUP | END BACKUP}</p>
+
+			<p>REM[ARK]</p>
+
+			<p>REPF[OOTER] [PAGE] [printspec [text | variable] ...] | [ON | OFF]</p>
+
+			<p>REPH[EADER] [PAGE] [printspec [text | variable] ...] | [ON | OFF]</p>
+
+			<p>R[UN]</p>
+
+			<p>SAV[E] [FILE] file_name[.ext] [CRE[ATE] | REP[LACE] | APP[END]]</p>
+
+			<p>SET system_variable value</p>
+
+			<p>SHO[W] [option]</p>
+
+			<p>SHUTDOWN [ABORT | IMMEDIATE | NORMAL | TRANSACTIONAL [LOCAL]]</p>
+
+			<p>SPO[OL] [filename[.ext] [CRE[ATE] | REP[LACE] | APP[END]] | OFF | OUT]</p>
+
+			<p>STA[RT] { url | file_name[.ext] } [arg ...]</p>
+
+			<p>STARTUP db_options | cdb_options | upgrade_options</p>
+
+			<p>STORE {SET} file_name[.ext] [CRE[ATE] | REP[LACE] | APP[END]]</p>
+
+			<p>TIMI[NG] [START text | SHOW | STOP]</p>
+
+			<p>TTI[TLE] [printspec [text | variable] ...] | [ON | OFF]</p>
+
+			<p>UNDEF[INE] variable ...</p>
+
+			<p>VAR[IABLE] [variable [type][=value]]</p>
+
+			<p>WHENEVER OSERROR {EXIT [SUCCESS | FAILURE | n | variable | :BindVariable] [COMMIT | ROLLBACK] | CONTINUE[COMMIT | ROLLBACK | NONE]}</p>
+
+			<p>WHENEVER SQLERROR {EXIT [SUCCESS | FAILURE | WARNING | n | variable  | :BindVariable] [COMMIT | ROLLBACK] | CONTINUE [COMMIT | ROLLBACK | NONE]}</p>
+
+			<p>XQUERY xquery_statement</p>	
+		</section>
+		<section class="main-section" id="Starting_and_Leaving_SQL*Plus">
+			<header>Starting and Leaving SQL*Plus</header>
+			<h3>Use the following commands to log in to and out of SQL*Plus.</h3>
+			SQLPLUS [[option] [logon | / NOLOG] [start]]
+
+			<p>where option has the following syntax:</p>
+
+			<p>-H[ELP]  | -V[ERSION]  | [ [-C[OMPATIBILITY] x.y[.z]] [-F[ast]] [-M[ARKUP] markup_option] [-L[OGON]]   [-NOLOGINTIME] [-R[ESTRICT] {1 | 2 | 3}] [-S[ILENT]]]</p>
+			
+			<p>where markup_option consists of:</p>
+			<ul>
+				<li>csv_option</li>
+				<li>html_option</li>
+			</ul>
+
+			<p>csv_option has the following syntax:</p>
+			<div id = "code">
+				<code>
+					CSV {ON|OFF} [DELIMI[TER] character] [QUOTE {ON|OFF}]
+				</code>
+			</div>
+			<p>html_option has the following syntax:</p>
+			<div id = "code">
+				<code>
+				HTML {ON|OFF} [HEAD text] [BODY text] [TABLE text] [ENTMAP {ON|OFF}] [SPOOL {ON|OFF}] [PRE[FORMAT] {ON|OFF}]
+				</code>
+			</div>
+
+			<p>where logon has the following syntax:</p>
+
+			<p>{username[/password] [@connect_identifier]  | /}  [AS {SYSASM |SYSBACKUP |SYSDBA |SYSDG |SYSOPER |SYSRAC |SYSKM}]  [edition=value]</p>
+
+			<p>and where start has the following syntax:</p>
+
+			<p>@{url | file_name[.ext]} [arg ...]</p>
+
+			<p>{EXIT | QUIT} [SUCCESS | FAILURE | WARNING | n | variable | :BindVariable] [COMMIT | ROLLBACK]</p>
+
+			<p>Commits or rolls back all pending changes, logs out of Oracle, terminates SQL*Plus and returns control to the operating system.</p>
+		</section>
+		<section class="main-section" id="Starting_Up_and_Shutting_Down_a_Database">
+			<header>Starting Up and Shutting Down a Database</header>
+				<p>Starting up and shutting down a database requires DBA privileges.</p>
+
+				<p>STARTUP db_options  | cdb_options | upgrade_options</p>
+
+				<p>where db options has the following syntax:</p>
+
+				<p>[FORCE] [RESTRICT] [PFILE=filename] [QUIET]  [ MOUNT [dbname] |  [ OPEN [open_db_options] [dbname] ] | NOMOUNT ]</p>
+
+				<p>where open_db_options has the following syntax:</p>
+
+				<p>READ {ONLY | WRITE [RECOVER]} | RECOVER</p>
+
+				<p>where cdb_options has the following syntax:</p>
+
+				<p>root_connection_options | pdb_connection_options</p>
+
+				<p>where root_connection_options has the following syntax:</p>
+
+				<p>PLUGGABLE DATABASE pdbname  [FORCE] | [RESTRICT]  [ OPEN {open_pdb_options}]</p>
+
+				<p>where pdb_connection_options has the following syntax:</p>
+
+				<p>[FORCE] | [RESTRICT]  [ OPEN {open_pdb_options}]</p>
+
+				<p>where open_pdb_options has the following syntax:</p>
+
+				<p>READ WRITE | READ ONLY</p>
+
+				<p>and where upgrade_options has the following syntax:</p>
+
+				<p>[PFILE=filename] {UPGRADE | DOWNGRADE} [QUIET]</p>
+
+				<p>Starts an Oracle Database instance with several options, including mounting and opening a database.</p>
+
+				<p>SHUTDOWN [ABORT | IMMEDIATE | NORMAL | TRANSACTIONAL [LOCAL]]</p>
+
+				<p>Shuts down a currently running Oracle instance, optionally closing and dismounting a database.</p>
+		</section>
+		<section class="main-section" id="Entering_and_Executing_Commands">
+			<header>Entering and Executing Commands</header>
+			<h3>Use the following commands to execute and collect timing statistics on SQL commands and PL/SQL blocks.</h3>
+				<p>/ (slash)</p>
+
+				<p>Executes the most recently executed SQL command or PL/SQL block which is stored in the SQL buffer. Does not list the command. Use slash (/) at the command prompt or line number prompt in SQL*Plus command line.</p>
+
+				<p>EXEC[UTE] statement</p>
+
+				<p>Executes a single PL/SQL statement or runs a stored procedure.</p>
+
+				<p>R[UN]</p>
+
+				<p>Lists and executes the most recently executed SQL command or PL/SQL block which is stored in the SQL buffer.</p>
+
+				<p>TIMI[NG] [START text | SHOW | STOP]</p>
+
+				<p>Records timing data for an elapsed period of time, lists the current timer's name and timing data, or lists the number of active timers.</p>
+
+				<h3>Use the following command to access the help system.</h3>
+
+				<p>HELP | ? [topic]</p>
+
+				<p>Accesses the command-line help system. Enter HELP INDEX or ? INDEX for a list of topics. You can view the Oracle Database Library at <b>http://www.oracle.com/technology/documentation</b>.</p>
+
+				<h3>Use the following command to execute operating system commands.</h3>
+				HO[ST] [command]
+
+				<p>Executes an operating system command without leaving SQL*Plus. Enter HOST without command to display an operating system prompt. You can then enter multiple operating system commands.</p>
+
+				<p>With some operating systems, you can use another character instead of HOST such as "!" (UNIX) and "$" (Windows). See the Oracle installation and user's manuals provided for your operating system for details.</p>
+		</section>
+		<section class="main-section" id="Manipulating_SQL,_SQL*Plus_and_PL/SQL_Commands">
+			<header>Manipulating SQL, SQL*Plus and PL/SQL Commands</header>
+			<h3>Use the following commands to edit SQL commands and PL/SQL blocks.</h3>
+			<p>A[PPEND] text</p>
+
+			<p>Adds specified text to the end of the current line in the SQL buffer. To separate text from the preceding characters with a space, enter two spaces. To append text that ends with a semicolon, end the command with two semicolons (a single semicolon is interpreted as a command terminator).</p>
+
+			<p>C[HANGE] sepchar old [sepchar [new [sepchar]]]</p>
+
+			<p>Changes first occurrence of old on the current line of the SQL buffer. You can use any non-alphanumeric character such as "/" or "!" as a sepchar. You can omit the space between CHANGE and the first sepchar.</p>
+
+			<p>DEL [n | n m | n * | n LAST | * | * n | * LAST | LAST]</p>
+
+			<p>Deletes one or more lines of the SQL buffer ("*" indicates the current line). You can omit the space between DEL and n or *, but not between DEL and LAST. Enter DEL with no clauses to delete the current line of the buffer.</p>
+
+			<p>I[NPUT] [text]</p>
+
+			<p>Adds one or more new lines of text after the current line in the SQL buffer.</p>
+
+			<p>L[IST] [n | n m | n * | n LAST | * | * n | * LAST | LAST]</p>
+
+			<p>Lists one or more lines of the most recently executed SQL command or PL/SQL block which is stored in the SQL buffer. Asterisk (*) indicates the current line. You can omit the space between LIST and n or *, but not between LIST and LAST. Enter LIST with no clauses to list all lines.</p>
+
+			<h3>Use the following commands to run scripts.</h3>
+
+			<p>@ { url | file_name[.ext] } [arg ...]</p>
+
+			<p>Runs the SQL*Plus statements in the specified script. The script can be called from the local file system or a web server. You can pass values to script variables in the usual way.</p>
+
+			<p>@@ { url | file_name[.ext] } [arg ...]</p>
+
+			<p>Runs the SQL*Plus statements in the specified script. This command is almost identical to the @ command. It is useful for running nested scripts because it has the additional functionality of looking for the specified script in the same path or url as the calling script.</p>
+
+			<p>STA[RT] { url | file_name[.ext] } [arg ...]</p>
+
+			<p>Runs the SQL*Plus statements in the specified script. The script can be called from the local file system or a web server. You can pass values to script variables in the usual way.</p>
+
+			<h3>Use the following commands to create and modify scripts.</h3>
+
+			<p>ED[IT] [file_name[.ext]]</p>
+
+			<p>Invokes an operating system text editor on the contents of the specified file or on the contents of the SQL buffer. To edit the buffer contents, omit the file name.</p>
+
+			<p>GET file_name[.ext] [LIST | NOLIST]</p>
+
+			<p>Loads a SQL statement or PL/SQL block from a file into the SQL buffer.</p>
+
+			<p>REM[ARK]</p>
+
+			<p>Begins a comment in a script. The REMARK command must appear at the beginning of a line, and the comment ends at the end of the line (a line cannot contain both a comment and a command). SQL*Plus does not interpret the comment as a command.</p>
+
+			<p>SAV[E] file_name[.ext] [CRE[ATE] | REP[LACE] | APP[END]]</p>
+
+			<p>Saves the contents of the SQL buffer in a file.</p>
+
+			<p>STORE {SET} file_name[.ext] [CRE[ATE] | REP[LACE] | APP[END]]</p>
+
+			<p>Saves attributes of the current SQL*Plus environment in a file.</p>
+
+			<p>WHENEVER OSERROR {EXIT [SUCCESS | FAILURE | n | variable  | :BindVariable] [COMMIT | ROLLBACK] | CONTINUE [COMMIT | ROLLBACK | NONE]}</p>
+
+			<p>Performs the specified action (exits SQL*Plus by default) if an operating system error occurs (such as a file writing error).</p>
+
+			<p>WHENEVER SQLERROR {EXIT [SUCCESS | FAILURE | WARNING | n | variable  | :BindVariable] [COMMIT | ROLLBACK] | CONTINUE [COMMIT | ROLLBACK | NONE]}</p>
+
+			<p>Performs the specified action (exits SQL*Plus by default) if a SQL command or PL/SQL block generates an error.</p>
+
+			<h3>Use the following commands to write interactive commands.</h3>
+
+			<p>ACC[EPT] variable [NUM[BER] | CHAR | DATE | BINARY_FLOAT | BINARY_DOUBLE] [FOR[MAT] format] [DEF[AULT] default] [PROMPT text | NOPR[OMPT]] [HIDE]</p>
+
+			<p>Reads a line of input and stores it in a given substitution variable.</p>
+
+			<p>DEF[INE] [variable] | [variable = text]</p>
+
+			<p>Specifies a substitution variable and assigns a CHAR value to it, or lists the value and variable type of a single variable or all variables.</p>
+
+			<p>PAU[SE] [text]</p>
+
+			<p>Displays the specified text then waits for the user to press RETURN.</p>
+
+			<p>PRO[MPT] [text]</p>
+
+			<p>Sends the specified message or a blank line to the user's screen.</p>
+
+			<p>UNDEF[INE] variable ...</p>
+
+			<p>Deletes one or more substitution variables that you defined either explicitly (with the DEFINE command) or implicitly (with a START command argument).</p>
+
+			<h3>Use the following commands to create and display bind variables.</h3>
+
+			<p>PRINT [variable ...]</p>
+
+			<p>Displays the current values of bind variables, or lists all bind variables.</p>
+
+			<p>VAR[IABLE] [variable [type][=value]]</p>
+
+			<p>Declares a bind variable that can be referenced in PL/SQL, or lists the current display characteristics for a single variable or all variables.</p>
+
+			<p>type represents one of the following:</p>
+
+			<p>NUMBER</p>
+			<p>CHAR</p>
+			<p>CHAR (n [CHAR | BYTE])</p>
+			<p>NCHAR</p>
+			<p>NCHAR (n)</p>
+			<p>VARCHAR2 (n [CHAR | BYTE])</p>
+			<p>NVARCHAR2 (n)</p>
+			<p>CLOB</p>
+			<p>NCLOB</p>
+			<p>REFCURSOR</p>
+			<p>BINARY_FLOAT</p>
+			<p>BINARY_DOUBLE</p>
+			<p>value allows you to assign a value to a variable for input binding.</p>
+
+			<h3>Use the following symbols to create substitution variables and parameters for use in scripts.</h3>
+
+			<p>&n</p>
+
+			<p>Specifies a parameter in a script you run using the START command. START substitutes values you list after the script name as follows: the first for &1, the second for &2, and so on.</p>
+
+			<p>&user_variable, &&user_variable</p>
+
+			<p>Indicates a substitution variable in a SQL or SQL*Plus command. SQL*Plus substitutes the value of the specified substitution variable for each substitution variable it encounters. If the substitution variable is undefined, SQL*Plus prompts you for a value each time an "&" variable is found, and the first time an "&&" variable is found.</p>
+
+			<p>. (period)</p>
+
+			<p>Terminates a substitution variable followed by a character that would otherwise be part of the variable name.</p>
+		</section>
+		<section class="main-section" id="Formatting_Query_Results">
+			<header>Formatting Query Results</header>
+			<h3>Use the following commands to format, store and print your query results.</h3>
+
+			<p>ATTRIBUTE [type_name.attribute_name [option...]]</p>
+
+			<p>Specifies display characteristics for a given attribute of an Object Type column, such as the format of NUMBER data. Columns and attributes should not have the same names as they share a common namespace. Lists the current display characteristics for a single attribute or for all attributes.</p>
+
+			<p>Where option represents one of the following clauses:</p>
+
+			<p>ALI[AS] alias</p>
+			<p>CLE[AR]</p>
+			<p>FOR[MAT] format</p>
+			<p>LIKE {type_name.attribute_name|alias}</p>
+			<p>ON|OFF</p>
+			<p>BRE[AK] [ON report_element [action [action]]] ...</p>
+
+			<p>Specifies where changes occur in a report and the formatting action to perform, such as:</p>
+			<ul>
+				<li>suppressing the display of duplicate values for a given column</li>
+
+				<li>skipping a line each time a given column value changes</li>
+
+				<li>printing computed figures each time a given column value changes or at the end of the report</li>
+			</ul>
+
+			<p>Enter BREAK with no clauses to list the current BREAK definition.</p>
+
+			<p>Where report_element has the following syntax:</p>
+
+			<p>{column | expr | ROW | REPORT}</p>
+
+			<p>and where action has the following syntax:</p>
+
+			<p>[SKI[P] n | [SKI[P]] PAGE] [NODUP[LICATES] | DUP[LICATES]]</p>
+
+			<p>BTI[TLE] [printspec [text | variable] ...] | [ON | OFF]</p>
+
+			<p>Places and formats a title at the bottom of each report page, or lists the current BTITLE definition. Use one of the following clauses in place of printspec:</p>
+
+			<p>BOLD</p>
+			<p>CE[NTER]</p>
+			<p>COL n</p>
+			<p>FORMAT text</p>
+			<p>LE[FT]</p>
+			<p>R[IGHT]</p>
+			<p>S[KIP] [n]</p>
+			<p>TAB n</p>
+			<p>CL[EAR] option ...</p>
+			<p>Resets or erases the current value or setting for the specified option.</p>
+
+			<p>Where option represents one of the following clauses:</p>
+
+			<p>BRE[AKS]</p>
+			<p>BUFF[ER]</p>
+			<p>	COL[UMNS]</p>
+			<p>COMP[UTES]</p>
+			<p>SCR[EEN]</p>
+			<p>SQL</p>
+			<p>TIMI[NG]</p>
+			<p>COL[UMN] [{column | expr} [option ...]]</p>
+
+			<p>Specifies display attributes for a given column, such as:</p>
+			<ul>
+				<li>text for the column heading</li>
+
+				<li>alignment for the column heading</li>
+
+				<li>format for NUMBER data</li>
+
+				<li>wrapping of column data</li>
+			</ul>
+
+			<p>Also lists the current display attributes for a single column or all columns.</p>
+
+			<p>Where option represents one of the following clauses:</p>
+
+			<p>ALI[AS] alias</p>
+			<p>CLE[AR]</p>
+			<p>ENTMAP {ON | OFF}</p>
+			<p>FOLD_A[FTER]</p>
+			<p>FOLD_B[EFORE]</p>
+			<p>FOR[MAT] format</p>
+			<p>HEA[DING] text</p>
+			<p>JUS[TIFY] {L[EFT] | C[ENTER] | R[IGHT]}</p>
+			<p>LIKE {expr | alias}</p>
+			<p>NEWL[INE]</p>
+			<p>NEW_V[ALUE] variable</p>
+			<p>NOPRI[NT] | PRI[NT]</p>
+			<p>NUL[L] text</p>
+			<p>OLD_V[ALUE] variable ON | OFF</p>
+			<p>WRA[PPED] | WOR[D_WRAPPED] | TRU[NCATED]</p>
+			<p>Enter COLUMN [{column |expr} FORMAT format] where the format element specifies the display format for the column.</p>
+
+			<p>To change the display format of a NUMBER column, use FORMAT followed by one of the elements in the following table:</p>
+
+			<table>
+				<thead>
+					<tr>
+						<th>Element</th>
+						<th>Examples</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>, (comma)</td>
+						<td><div id="code">9,999</div></td>
+						<td>Displays a comma in the specified position.</td>
+					</tr>
+					<tr>
+						<td>. (period)</td>
+						<td><div id="code">99.99</div></td>
+						<td>Displays a period (decimal point) to separate the integral and fractional parts of a number.</td>
+					</tr>
+					<tr>
+						<td>$</td>
+						<td><div id="code">$9999</div></td>
+						<td>Displays a leading dollar sign.</td>
+					</tr>
+					<tr>
+						<td>0</td>
+						<td><div id="code">0999<br>9990</div></td>
+						<td>Displays leading zeros Displays trailing zeros.</td>
+					</tr>
+					<tr>
+						<td>B</td>
+						<td><div id="code">B9999</div></td>
+						<td>Displays a value with the number of digits specified by the number of 9s. Value has a leading space if positive, a leading minus sign if negative. Blanks are displayed for leading zeroes. A zero (0) is displayed for a value of zero.</td>
+					</tr>
+					<tr>
+						<td>C</td>
+						<td><div id="code">C999</div></td>
+						<td>Displays the ISO currency symbol in the specified position.</td>
+					</tr>
+					<tr>
+						<td>D</td>
+						<td><div id="code">99D99</div></td>
+						<td>Displays the decimal character to separate the integral and fractional parts of a number.</td>
+					</tr>
+					<tr>
+						<td>EEEE</td>
+						<td><div id="code">9.999EEEE</div></td>
+						<td>Displays value in scientific notation (format must contain exactly four "E"s).</td>
+					</tr>
+					<tr>
+						<td>G</td>
+						<td><div id="code">9G999</div></td>
+						<td>Displays the group separator in the specified positions in the integral part of a number.</td>
+					</tr>
+					<tr>
+						<td>L</td>
+						<td><div id="code">L999</div></td>
+						<td>Displays the local currency symbol in the specified position.</td>
+					</tr>
+					<tr>
+						<td>MI</td>
+						<td><div id="code">9999MI</div></td>
+						<td>Displays a trailing minus sign after a negative value. Display a trailing space after a positive value.</td>
+					</tr>
+					<tr>
+						<td>PR</td>
+						<td><div id="code">9999PR</div></td>
+						<td>Displays a negative value in <angle brackets>. Displays a positive value with a leading and trailing space.</td>
+					</tr>
+					<tr>
+						<td>RN rn</td>
+						<td><div id="code">RN<br>rn</div></td>
+						<td>Displays uppercase Roman numerals. Displays lowercase Roman numerals. Value can be an integer between 1 and 3999.</td>
+					</tr>
+					<tr>
+						<td>S</td>
+						<td><div id="code">S9999<br>9999S</div></td>
+						<td>Displays a leading minus or plus sign. Displays a trailing minus or plus sign.</td>
+					</tr>
+					<tr>
+						<td>TM</td>
+						<td><div id="code">TM</div></td>
+						<td>Displays the smallest number of decimal characters possible. The default is TM9. Fixed notation is used for output up to 64 characters, scientific notation for more than 64 characters. Cannot precede TM with any other element. TM can only be followed by a single 9 or E</td>
+					</tr>
+					<tr>
+						<td>U</td>
+						<td><div id="code">U9999</div></td>
+						<td>Displays the dual currency symbol in the specified position.</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>COMP[UTE] [function [LAB[EL] text] ... OF {expr | column | alias} ...ON {expr | column | alias | REPORT | ROW} ...]</p>
+
+			<p>In combination with the BREAK command, calculates and prints summary lines using various standard computations. It also lists all COMPUTE definitions. The following table lists valid functions. All functions except NUMBER apply to non-null values only. COMPUTE functions are always executed in the following sequence AVG, COUNT, MINIMUM, MAXIMUM, NUMBER, SUM, STD, VARIANCE.</p>
+
+			<table>
+				<thead>
+					<th>Function</th>
+					<th>Computes</th>
+					<th>Applies to Datatypes</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>AVG</td>
+						<td>Average of non-null values</td>
+						<td>NUMBER</td>
+					</tr>
+					<tr>
+						<td>COU[NT]</td>
+						<td>Count of non-null values</td>
+						<td>All types</td>
+					</tr>
+					<tr>
+						<td>MIN[IMUM]</td>
+						<td>Minimum value</td>
+						<td>NUMBER, CHAR, NCHAR, VARCHAR2 (VARCHAR), NVARCHAR2 (NCHAR VARYING)</td>
+					</tr>
+					<tr>
+						<td>MAX[IMUM]</td>
+						<td>Maximum value</td>
+						<td>NUMBER, CHAR, NCHAR, VARCHAR2 (VARCHAR), NVARCHAR2 (NCHAR VARYING)</td>
+					</tr>
+					<tr>
+						<td>NUM[BER]</td>
+						<td>Count of rows</td>
+						<td>All types</td>
+					</tr>
+					<tr>
+						<td>SUM</td>
+						<td>Sum of non-null values</td>
+						<td>NUMBER</td>
+					</tr>
+					<tr>
+						<td>STD</td>
+						<td>Standard deviation of non-null values</td>
+						<td>NUMBER</td>
+					</tr>
+					<tr>
+						<td>VAR[IANCE]</td>
+						<td>Variance of non-null values</td>
+						<td>NUMBER</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p>REPF[OOTER] [PAGE] [printspec [text | variable] ...] | [ON | OFF]</p>
+
+			<p>Places and formats a footer at the bottom of a report, or lists the current REPFOOTER definition.</p>
+
+			<p>Where printspec represents one or more of the following clauses:</p>
+
+			<p>BOLD</p>
+			<p>CE[NTER]</p>
+			<p>COL n</p>
+			<p>FORMAT text</p>
+			<p>LE[FT]</p>
+			<p>R[IGHT]</p>
+			<p>S[KIP] [n]</p>
+			<p>TAB n</p>
+			<p>REPH[EADER] [PAGE] [printspec [text | variable] ...] | [ON | OFF]</p>
+			<p>Places and formats a header at the top of a report, or lists the current REPHEADER definition.</p>
+
+			<p>Where printspec represents one or more of the clauses shown for REPFOOTER.</p>
+
+			<p>SPO[OL] [filename[.ext] [CRE[ATE] | REP[LACE] | APP[END]] | OFF | OUT]</p>
+
+			<p>Stores query results in a file, or optionally sends the file to a printer. OFF stops spooling. OUT stops spooling and sends the file to your computer's default printer. Enter SPOOL with no clauses to list the current spooling status. If no file extension is given, the default extension, .lst or .lis, is used.</p>
+
+			<p>TTI[TLE] [printspec [text | variable] ...] | [ON | OFF]</p>
+
+			<p>Places and formats a specified title at the top of each report page, or lists the current TTITLE definition. The old form of TTITLE is used if only a single word or a string in quotes follows the TTITLE command.</p>
+
+			<p>Where printspec represents one or more of the following clauses:</p>
+
+			<p>BOLD</p>
+			<p>CE[NTER]</p>
+			<p>COL n</p>
+			<p>FORMAT text</p>
+			<p>LE[FT]</p>
+			<p>R[IGHT]</p>
+			<p>S[KIP] [n]</p>
+			<p>TAB n</p>
+		</section>
+		<section class="main-section" id="Accessing_Databases">
+			<header>Accessing Databases</header>
+			<h3>Use the following commands to access and copy data between tables on different databases.</h3>
+
+			<p>CONN[ECT] [{logon | / | proxy}  [AS {SYSASM |SYSBACKUP |SYSDBA |SYSDG |SYSOPER |SYSRAC |SYSKM}]  [edition=value] ]</p>
+
+			<p>where logon requires the following syntax:</p>
+
+			<p>username[/password] [@connect_identifier]</p>  
+
+			<p>where proxy requires the following syntax:</p>
+
+			<p>proxyuser[username] [/password] [@connect_identifier]</p>
+
+			<code style="font-size: 19px;"><p><b style="border-left:8px solid skyblue;padding-left: 10px;">Note:</b> The brackets around username in proxy are required syntax.</p></code> 
+
+			<p>Connects a given username to the Oracle Database. If you omit connect_identifier, SQL*Plus connects you to the default database. If you omit username and/or password, SQL*Plus prompts you for them. CONNECT followed by a slash (/) connects you using a default (OPS$) logon.</p>
+
+			<p>When you run a CONNECT command, the site profile, glogin.sql, and the user profile, login.sql, are processed in that order. CONNECT does not reprompt for username or password if the initial connection does not succeed.</p>
+
+			<p>DISC[ONNECT]</p>
+
+			<p>Commits pending changes to the database and logs the current user out of Oracle, but does not exit SQL*Plus. In SQL*Plus command line, use EXIT or QUIT to log out of Oracle and return control to your computer's operating system.</p>
+
+			<p>COPY {FROM database | TO database | FROM database TO database} {APPEND | CREATE | INSERT | REPLACE} destination_table[(column, column, column, ...)] USING query</p>
+
+			<p>where database has the following syntax:</p>
+
+			<p>username[/password]@connect_identifier</p>
+
+			<p>Copies data from a query to a table in the same or another database. APPEND, CREATE, INSERT or REPLACE specifies how COPY treats the existing copy of the destination table (if it exists). USING query identifies the source table and determines which rows and columns COPY copies from it. COPY supports CHAR, DATE, LONG, NUMBER and VARCHAR2 datatypes.</p>
+
+			<p>PASSW[ORD] [username]</p>
+
+			<p>Allows you to change a password without displaying it on an input device.</p>
+
+			<p>XQUERY xquery_statement</p>
+
+			<p>Allows you to run an XQuery from SQL*Plus.</p> 
+		</section>
+		<section class="main-section" id="Miscellaneous">
+			<header>Miscellaneous</header>
+			<p>ARCHIVE LOG LIST</p>
+
+			<p>Displays information about redo log files.</p>
+
+			<div id="code">
+				<code>DESC[RIBE] {[schema.]object[@connect_identifier]}</code>
+			</div>
+
+			<p>Lists the column definitions for a table, view or synonym, or the specifications for a function or procedure.</p>
+
+			<div id="code">
+				<code>RECOVER {general | managed | BEGIN BACKUP | END BACKUP}</code>
+			</div>
+
+			<p>where the general clause has the following syntax:</p>
+
+			<p>[AUTOMATIC] [FROM location]  { {full_database_recovery  | partial_database_recovery  | LOGFILE filename}  [ {TEST | ALLOW integer CORRUPTION | parallel_clause }    [TEST |ALLOW integer CORRUPTION | parallel_clause  ]...]|CONTINUE   [DEFAULT] | CANCEL}</p>
+
+			<p>where the full_database_recovery clause has the following syntax:</p>
+
+			<p>[STANDBY] DATABASE [ {UNTIL {CANCEL | TIME date | CHANGE integer}   | USING BACKUP CONTROLFILE}  [UNTIL {CANCEL   | TIME date | CHANGE integer} | USING BACKUP CONTROLFILE | SNAPSHOT TIME date]...]</p>
+
+			<p>where the partial_database_recovery clause has the following syntax:</p>
+
+			<p>{TABLESPACE tablespace [, tablespace]...     | DATAFILE {filename | filenumber} [, filename | filenumber]... | STANDBY {TABLESPACE tablespace [, tablespace]...                         | DATAFILE {filename | filenumber} [, filename | filenumber]...}     UNTIL [CONSISTENT WITH] CONTROLFILE }</p>
+
+			<p>where the parallel clause has the following syntax:</p>
+
+			<p>{ NOPARALLEL | PARALLEL [ integer ] }</p>
+
+			<p>where the managed clause has the following syntax:</p>
+
+			<p>MANAGED STANDBY DATABASE recover_clause | cancel_clause | finish_clause</p>
+
+			<p>where the recover_clause has the following syntax:</p>
+
+			<p>{ { DISCONNECT [ FROM SESSION ]  | { TIMEOUT integer | NOTIMEOUT }  }   | { NODELAY | DEFAULT DELAY | DELAY integer } | NEXT integer   | { EXPIRE integer | NO EXPIRE } | parallel_clause   | USING CURRENT LOGFILE | UNTIL CHANGE integer   | THROUGH { [ THREAD integer ] SEQUENCE integer                        | ALL ARCHIVELOG  | { ALL | LAST | NEXT } SWITCHOVER} }     [ DISCONNECT [ FROM SESSION ]  | { TIMEOUT integer | NOTIMEOUT }       | { NODELAY | DEFAULT DELAY | DELAY integer } | NEXT integer       | { EXPIRE integer | NO EXPIRE } | parallel_clause       | USING CURRENT LOGFILE | UNTIL CHANGE integer       | THROUGH { [ THREAD integer ] SEQUENCE integer                            | ALL ARCHIVELOG  | { ALL | LAST | NEXT } SWITCHOVER}  ]...</p>
+
+			<p>where the cancel_clause has the following syntax:</p>
+
+			<p>CANCEL [IMMEDIATE] [WAIT | NOWAIT]</p>
+
+			<p>where the finish_clause has the following syntax:</p>
+
+			<p>[ DISCONNECT [ FROM SESSION ] ] [ parallel_clause ] FINISH [ SKIP [ STANDBY LOGFILE ] ] [ WAIT | NOWAIT ]</p>
+
+			<p>where the parallel_clause has the following syntax:</p>
+
+			<p>{ NOPARALLEL | PARALLEL [ integer ] }</p>
+
+			<p>Performs media recovery on one or more tablespaces, one or more datafiles, or the entire database.</p>
+
+			<p>SET system_variable value</p>
+
+			<p>Sets a system variable to alter the SQL*Plus environment settings for your current session. For example, to:</p>
+
+			<ul>
+				<li>set the display width for data</li>
+
+				<li>customize HTML formatting</li>
+
+				<li>enable or disable printing of column headings</li>
+
+				<li>set the number of lines per page</li>
+			</ul>
+
+			<p>Enter a system variable followed by a value as shown below. The default value for a system variable is underlined.</p>
+
+			<p>SET APPI[NFO]{ON | OFF | text}</p>
+			<p>SET ARRAY[SIZE] {15 | n}</p>
+			<p>SET AUTO[COMMIT] {ON | OFF | IMM[EDIATE] | n}</p>
+			<p>SET AUTOP[RINT] {ON | OFF}</p>
+			<p>SET AUTORECOVERY {ON | OFF]</p>
+			<p>SET AUTOT[RACE] {ON | OFF | TRACE[ONLY]} [EXP[LAIN]] [STAT[ISTICS]]</p>
+			<p>SET BLO[CKTERMINATOR] {. | c | ON | OFF}</p>
+			<p>SET CMDS[EP] {; | c | ON | OFF}</p>
+			<p>SET COLINVI[SIBLE] {ON | OFF}</p>
+			<p>SET COLSEP {_ | text}</p>
+			<p>SET CON[CAT] {. | c | ON | OFF}</p>
+			<p>SET COPYC[OMMIT] {0 | n}</p>
+			<p>SET COPYTYPECHECK {ON | OFF}</p>
+			<p>SET DEF[INE] {& | c | ON | OFF}</p>
+			<p>SET DESCRIBE [DEPTH {1 | n | ALL}] [LINENUM {ON | OFF}] [INDENT {ON | OFF}]</p>
+			<p>SET ECHO {ON | OFF}</p>
+			<p>SET EDITF[ILE] file_name[.ext]</p>
+			<p>SET EMB[EDDED] {ON | OFF}</p>
+			<p>SET ERRORL[OGGING] {ON | OFF} [TABLE [schema.]tablename] [TRUNCATE] [IDENTIFIER identifier]</p>
+			<p>SET ESC[APE] {\ | c | ON | OFF}</p>
+			<p>SET ESCCHAR {@ | ? | % | $ | OFF}</p>
+			<p>SET EXITC[OMMIT] {ON | OFF}</p>
+			<p>SET FEED[BACK] {6 | n | ON | OFF | ONLY} [SQL_ID]</p>
+			<p>SET FLAGGER {OFF | ENTRY | INTERMED[IATE] | FULL}</p>
+			<p>SET FLU[SH] {ON | OFF}</p>
+			<p>SET HEA[DING] {ON | OFF}</p>
+			<p>SET HEADS[EP] { | | c | ON | OFF}</p>
+			<p>SET HIST[ORY] {ON | OFF | n}</p>
+			<p>SET INSTANCE [instance_path | LOCAL]</p>
+			<p>SET LIN[ESIZE] {80 | n | WINDOW}</p>
+			<p>SET LOBOF[FSET] {n | 1}</p>
+			<p>SET LOBPREF[ETCH] {0 | n}</p>
+			<p>SET LOGSOURCE [pathname]</p>
+			<p>SET LONG {80 | n}</p>
+			<p>SET LONGC[HUNKSIZE] {80 | n}</p>
+			<p>SET MARK[UP] CSV {ON|OFF} [DELIMI[TER] character] [QUOTE {ON|OFF}]</p>
+			<p>SET MARK[UP] HTML {ON|OFF} [HEAD text] [BODY text] [TABLE text] [ENTMAP {ON|OFF}] [SPOOL {ON|OFF}] [PRE[FORMAT] {ON|OFF}]</p>
+			<p>SET NEWP[AGE] {1 | n | NONE}</p>
+			<p>SET NULL text</p>
+			<p>SET NUMF[ORMAT] format</p>
+			<p>SET NUM[WIDTH] {10 | n}</p>
+			<p>SET PAGES[IZE] {14 | n}</p>
+			<p>SET PAU[SE] {ON | OFF | text}</p>
+			<p>SET RECSEP {WR[APPED] | EA[CH] | OFF}</p>
+			<p>SET RECSEPCHAR { | c}</p>
+			<p>SET ROWLIMIT {n | OFF}</p>
+			<p>SET ROWPREF[ETCH] {1 | n}</p>
+			<p>SET SECUREDCOL {ON | OFF} [UNAUTH[ORIZED] text][UNK[NOWN] text]</p>
+			<p>SET SERVEROUT[PUT] {ON | OFF} [SIZE {n | UNL[IMITED]}] [FOR[MAT] {WRA[PPED] | WOR[D_WRAPPED] | TRU[NCATED]}]</p>
+			<p>SET SHIFT[INOUT] {VIS[IBLE] | INV[ISIBLE]}</p>
+			<p>SET SHOW[MODE] {ON | OFF}</p>
+			<p>SET SQLBL[ANKLINES] {ON | OFF}</p>
+			<p>SET SQLC[ASE] {MIX[ED] | LO[WER] | UP[PER]}</p>
+			<p>SET SQLCO[NTINUE] {> | text}</p>
+			<p>SET SQLN[UMBER] {ON | OFF}</p>
+			<p>SET SQLPLUSCOMPAT[IBILITY] {x.y[.z]}</p>
+			<p>SET SQLPRE[FIX] {# | c}</p>
+			<p>SET SQLP[ROMPT] {SQL> | text}</p>
+			<p>SET SQLT[ERMINATOR] {; | c | ON | OFF}</p>
+			<p>SET STATEMENTC[ACHE] {0 | n}</p>
+			<p>SET SUF[FIX] {SQL | text}</p>
+			<p>SET TAB {ON | OFF}</p>
+			<p>SET TERM[OUT] {ON | OFF}</p>
+			<p>SET TI[ME] {ON | OFF}</p>
+			<p>SET TIMI[NG] {ON | OFF}</p>
+			<p>SET TRIM[OUT] {ON | OFF}</p>
+			<p>SET TRIMS[POOL] {ON | OFF}</p>
+			<p>SET UND[ERLINE] {- | c | ON | OFF}</p>
+			<p>SET VER[IFY] {ON | OFF}</p>
+			<p>SET WRA[P] {ON | OFF}</p>
+			<p>SET XMLOPT[IMIZATIONCHECK] [ON|OFF]</p>
+			<p>SET XQUERY BASEURI {text}</p>
+			<p>SET XQUERY ORDERING {UNORDERED | ORDERED | DEFAULT}</p>
+			<p>SET XQUERY NODE {BYVALUE | BYREFERENCE | DEFAULT}</p>
+			<p>SET XQUERY CONTEXT {text}</p>
+			<p>SHO[W] [option]</p>
+
+			<p>Shows the value of a SQL*Plus system variable, or the current SQL*Plus environment. Enter any system variable set by the SET command in place of system_variable. SHOW SGA requires a DBA privileged login. Use one of the following terms or clauses in place of option:</p>
+
+			<p>system_variable</p>
+			<p>ALL</p>
+			<p>CON_ID</p>
+			<p>CON_NAME</p>
+			<p>BTI[TLE]</p>
+			<p>EDITION</p>
+			<p>ERR[ORS] [ {ANALYTIC VIEW | ATTRIBUTE DIMENSION | HIERARCHY | FUNCTION | PROCEDURE | PACKAGE | PACKAGE BODY | TRIGGER | VIEW | TYPE | TYPE BODY | DIMENSION | JAVA CLASS} [schema.]name]</p>
+			<p>HIST[ORY]</p>
+			<p>LNO</p>
+			<p>LOBPREF[ETCH]</p>
+			<p>PARAMETER[S] [parameter_name]</p>
+			<p>PDBS</p>
+			<p>PNO</p>
+			<p>RECYC[LEBIN] [original_name]</p>
+			<p>REL[EASE]</p>
+			<p>REPF[OOTER]</p>
+			<p>REPH[EADER]</p>
+			<p>ROWPREF[ETCH]</p>
+			<p>SGA</p>
+			<p>SPOO[L]</p>
+			<p>SPPARAMETER[S] [parameter_name]</p>
+			<p>SQLCODE</p>
+			<p>STATEMENTC[ACHE]</p>
+			<p>TTI[TLE]</p>
+			<p>USER</p>
+			<p>XQUERY</p>
+		</section>
+		<div class="footer">
+		<p>S07K</p>
+		<p id="source">
+			Source : 
+			<a id="logo" href="https://docs.oracle.com/en/database/oracle/oracle-database/19/sqpqr/index.html#SQPQR101">
+				click me !
+			</a>
+		</p>
+		</div>
+	</main>
+</body>
+<script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>
